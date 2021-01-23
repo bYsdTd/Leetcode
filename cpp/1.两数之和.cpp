@@ -15,15 +15,13 @@ public:
         // 如果在就返回数组下标，如果不在就把当前值和数组下标插入hashmap里
         map<int, int> marks;
         typedef map<int, int>::iterator ittype;
-        for (size_t i = 0; i < nums.size(); i++)
+        for (int i = 0; i < nums.size(); i++)
         {
             int remain = target - nums[i];
             ittype it = marks.find(remain);
             if (it != marks.end())
             {
-                vector<int> result;
-                result.push_back(it->second);
-                result.push_back(i);
+                vector<int> result = {it->second, i};
                 return result;
             }
             else
